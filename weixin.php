@@ -6,11 +6,18 @@ function WxValidate(){
 	$timestamp=$_GET['timestamp'];
 	$nonce=$_GET['nonce'];
 	$echostr=$_GET['echostr'];
+	$token="twj";
+	$tmpArr=array($token,$timestamp,$nonce);
+	sort($tmpArr);
+	$tmpStr=implode("", $tmpStr);
+	$tmpStr=sha1($tmpStr);
+
 	$strs=array(
 		'signature'=>$signature,
 		'timestamp'=>$timestamp,
 		'nonce'=>$nonce,
-		'echostr'=>$echostr
+		'echostr'=>$echostr,
+		'tmpStr'=>$tmpStr
 	);
 	output_log($strs);
 }
