@@ -31,6 +31,3 @@ class Api
         return $result->retData;
     }
 }
-
-$api = new Api();
-print_r($api->get_weather("成都"));

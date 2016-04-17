@@ -6,10 +6,29 @@
  * Date: 16/4/17
  * Time: 23:22
  */
+require_once('Api.php');
+
 class Service
 {
-    public function __construct()
+    public function __construct($serviceName, $serviceData)
     {
+        $this->serviceName = $serviceName;
+        $this->serviceData = $serviceData;
+        $this->api = new Api();
+        
+        switch ($this->serviceData) {
+            case '天气':
+            case '天气预报':
+                $cityName = $this->serviceData;
+                $weatherObj = $this->api->get_weather($cityName);
+                $this->content=$this->do_weather($weatherObj);
+                //设定要回复的消息类型
+                $this->replyMsgType="text";
+                break;
+            default:
+                $this->content = '暂无此服务';
+                break;
+        }
 
     }
 
@@ -45,5 +64,16 @@ class Service
         $body .= "日落时间:" . $sunset . "\n";
 
         return $body;
+    }
+
+    //获取微信回复内容
+    public function get_reply_content()
+    {
+        return $this->content;
+    }
+
+    //获取要回复消息的类型
+    public function get_reply_msgType(){
+        return $this->replyMsgType;
     }
 }
