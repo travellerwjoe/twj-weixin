@@ -4,5 +4,7 @@ $wx=array(
 	'appId'=>"wx8f340ecfe6762026",
 	"appSecret"=>"e5ade3dd29c0516eab30b7e5ec9caed9"
 );
-
+$api=array(
+	'BD_apikey'=>'d27a19f3a67a2c4b90b085aafa05f9cd'
+);
 ?>

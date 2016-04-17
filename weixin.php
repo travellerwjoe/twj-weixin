@@ -1,6 +1,10 @@
 <?php
 require_once('Utils.php');
+require_once('Api.php');
+require_once('Service.php');
 require_once('config.php');
+
+date_default_timezone_set("Asia/Shanghai");
 
 class WeiXin
 {
@@ -13,9 +17,12 @@ class WeiXin
         $this->wx = $wx;
         $this->utils = $utils;
         $this->access_token = $this->get_access_token();
+        $this->main();
+
     }
 
-    public function WxValidate()
+    //首次与微信服务器通信验证
+    public function validate()
     {
         $signature = $_GET['signature'];
         $timestamp = $_GET['timestamp'];
@@ -39,20 +46,9 @@ class WeiXin
             'tmpStr' => $tmpStr,
             'tmpArr' => implode("", $tmpArr)
         );
-        output_log($strs);
+        $this->utils->output_log($strs);
     }
-
-    //输出log文件
-    public function output_log($strs, $logFile = null)
-    {
-        date_default_timezone_set("Asia/Shanghai");
-        $output_time = Date("Y-m-d H:i:s");
-        $logFile = ($logFile ? $logFile : Date("Y-m-d")) . ".log";
-        foreach ($strs as $key => $value) {
-            $str .= $key . ":" . $value . "\r\n";
-        }
-        error_log("输出时间：" . $output_time . "\r\n" . $str, 3, $logFile);
-    }
+    
 
     public function get_access_token()
     {
@@ -79,11 +75,112 @@ class WeiXin
         $result = $this->utils->exe_curl($url, "post", $post_data);
         return $result;
     }
+
+    //获取用户消息
+    public function get_message()
+    {
+        $message = $GLOBALS['HTTP_RAW_POST_DATA'];
+        $messageObj = simplexml_load_string($message, "SimpleXMLElement", LIBXML_NOCDATA);
+        return $messageObj;
+    }
+
+    //处理消息
+    public function do_message()
+    {
+        $messageObj = $this->get_message();
+        $this->fromUserName = $messageObj->FromUserName;
+        $this->toUserName = $messageObj->ToUserName;
+        $msgType = $messageObj->MsgType;
+        $createTime = $messageObj->CreateTime;
+
+        switch ($msgType) {
+            case "text":
+                $content = trim($messageObj->Content);
+                $this->do_message_text($content);
+                break;
+            default:
+                break;
+        }
+    }
+
+    //处理文本消息
+    public function do_message_text($content)
+    {
+        $contentArr = explode(" ", $content);
+        $serviceName = $contentArr[0];
+        $api = new Api();
+        $service = new Service();
+
+        switch ($serviceName) {
+            case "天气":
+            case "天气预报":
+                $cityname = $contentArr[1];
+                $result = $api->get_weather($cityname);
+                $replyContent = $service->do_weather($result);
+                $this->reply_message_text($replyContent);
+                break;
+        }
+    }
+
+    //回复消息
+    public function reply_message($msgType, $content)
+    {
+        switch ($msgType) {
+            case "text":
+                $replyMessage = $this->generate_wxXMLMessage_text($content);
+                break;
+            default:
+                break;
+        }
+
+        echo $replyMessage;
+    }
+
+    //回复文本消息
+    public function reply_message_text($content)
+    {
+        $this->reply_message("text", $content);
+    }
+
+    //生成xml格式消息
+    public function generate_wxXMLMessage($msgType, $content)
+    {
+
+        $xmlMessage = "<xml>\n";
+        $xmlMessage .= "<ToUserName>" . $this->toUserName . "</ToUserName>\n";
+        $xmlMessage .= "<FromUserName>" . $this->fromUserName . "</FromUserName>\n";
+        $xmlMessage .= "<CreateTime>" . time() . "</CreateTime>\n";
+        $xmlMessage .= "<MsgType>" . $msgType . "</MsgType>\n";
+
+        switch ($msgType) {
+            case "text":
+                $xmlMessage .= "<Content>" . $content . "</Content>\n";
+                break;
+            default:
+                break;
+        }
+        $xmlMessage .= "</xml>";
+
+        return $xmlMessage;
+    }
+
+    //生成xml格式文本消息
+    public function generate_wxXMLMessage_text($content)
+    {
+        return $this->generate_wxXMLMessage("text", $content);
+    }
+
+    //主函数
+    public function main()
+    {
+
+        if ($GLOBALS['HTTP_RAW_POST_DATA']) {
+            $this->do_message();
+        }
+    }
 }
 
-$weixin = new WeiXin();
-
-$body = json_encode(array(
+/*$body = json_encode(array(
     'button' => array(
         array(
             'type' => 'click',
@@ -106,7 +203,11 @@ $body = json_encode(array(
             )
         )
     )
-));
+));*/
 
-$weixin->create_menu($body);
+
+$weixin = new WeiXin();
+
+
+//$weixin->main()
 ?>
