@@ -18,11 +18,17 @@ class Service
         switch ($this->serviceName) {
             case '天气':
             case '天气预报':
-		$cityName = $this->serviceData;
+                $cityName = $this->serviceData;
                 $weatherObj = $this->api->get_weather($cityName);
-                $this->content=$this->do_weather($weatherObj);
+                $this->content = $this->do_weather($weatherObj);
                 //设定要回复的消息类型
-                $this->replyMsgType="text";
+                $this->replyMsgType = "text";
+                break;
+            case 'turing':
+                $info = $serviceData;
+                $turingObj = $this->api->get_turing($info);
+                $this->content = $this->do_turing($turingObj);
+                $this->replyMsgType = "text";
                 break;
             default:
                 $this->content = '暂无此服务';
@@ -61,8 +67,15 @@ class Service
         $body .= "风速:" . $WS . "\n";
         $body .= "日出时间:" . $sunrise . "\n";
         $body .= "日落时间:" . $sunset;
-	
-	$body=htmlspecialchars($body);	
+
+        $body = htmlspecialchars($body);
+
+        return $body;
+    }
+
+    public function do_turing($turingObj){
+        $text=$turingObj->text;
+        $body=htmlspecialchars($text);
 
         return $body;
     }
@@ -74,7 +87,8 @@ class Service
     }
 
     //获取要回复消息的类型
-    public function get_reply_msgType(){
+    public function get_reply_msgType()
+    {
         return $this->replyMsgType;
     }
 }

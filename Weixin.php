@@ -15,15 +15,15 @@ class WeiXin
         $utils = new Utils();
         $this->wx = $wx;
         $this->utils = $utils;
-       // $this->access_token = $this->get_access_token();
-	
-	if ($GLOBALS['HTTP_RAW_POST_DATA']) {
-		$wxmessage=new WxMessage();
-		$wxmessage->do_message();
-		$str=array(
-			'message'=>$GLOBALS['HTTP_RAW_POST_DATA']
-		);
-		$this->utils->output_log($str);
+//        $this->access_token = $this->get_access_token();
+
+        if ($GLOBALS['HTTP_RAW_POST_DATA']) {
+            $wxmessage = new WxMessage();
+            $wxmessage->do_message();
+            $str = array(
+                'message' => $GLOBALS['HTTP_RAW_POST_DATA']
+            );
+            $this->utils->output_log($str);
         }
     }
 
@@ -54,7 +54,7 @@ class WeiXin
         );
         $this->utils->output_log($strs);
     }
-    
+
 
     public function get_access_token()
     {

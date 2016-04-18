@@ -12,7 +12,7 @@ class WxMessage
 {
     public function __construct()
     {
-       // $this->weixin = new WeiXin();
+        // $this->weixin = new WeiXin();
     }
 
     //获取用户消息
@@ -31,7 +31,7 @@ class WxMessage
         $this->toUserName = $messageObj->ToUserName;
         $msgType = $messageObj->MsgType;
         $createTime = $messageObj->CreateTime;
-	
+
         switch ($msgType) {
             case "text":
                 $content = trim($messageObj->Content);
@@ -45,21 +45,28 @@ class WxMessage
     //处理文本消息
     public function do_message_text($content)
     {
-        $contentArr = explode(".", $content);
-        $serviceName = $contentArr[0];
-	if($contentArr[1]){
-	        $serviceData = $contentArr[1];
-	}
-	if(count($contentArr)>2){
-		for($i=2;i<count($contentArr);$i++){
-			$serviceData.=' '.$contentArr[$i];
-		}
-	}
+        $commandFlag=substr($content,0,1);
+        
+        if($commandFlag=="/") {
+            $contentArr = explode(".", $content);
+            $serviceName = $contentArr[0];
+            if ($contentArr[1]) {
+                $serviceData = $contentArr[1];
+            }
+            if (count($contentArr) > 2) {
+                for ($i = 2; i < count($contentArr); $i++) {
+                    $serviceData .= ' ' . $contentArr[$i];
+                }
+            }
+        }else{
+            $serviceName="turing";
+            $serviceData=$content;
+        }
         $service = new Service($serviceName, $serviceData);
         $replyContent = $service->get_reply_content();
         $replyMsgType = $service->get_reply_msgType();
-	
-	
+
+
         //判断要回复消息的类型,默认回复文本消息
         switch ($replyMsgType) {
             case 'text':
@@ -83,7 +90,7 @@ class WxMessage
                 $replyMessage = "";
                 break;
         }
-	
+
         echo $replyMessage;
     }
 
