@@ -46,8 +46,9 @@ class WxMessage
     public function do_message_text($content)
     {
         $commandFlag=substr($content,0,1);
-        
+
         if($commandFlag=="/") {
+            $content=substr($content,1);
             $contentArr = explode(".", $content);
             $serviceName = $contentArr[0];
             if ($contentArr[1]) {
