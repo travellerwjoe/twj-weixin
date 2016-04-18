@@ -15,11 +15,10 @@ class Service
         $this->serviceName = $serviceName;
         $this->serviceData = $serviceData;
         $this->api = new Api();
-        
-        switch ($this->serviceData) {
+        switch ($this->serviceName) {
             case '天气':
             case '天气预报':
-                $cityName = $this->serviceData;
+		$cityName = $this->serviceData;
                 $weatherObj = $this->api->get_weather($cityName);
                 $this->content=$this->do_weather($weatherObj);
                 //设定要回复的消息类型
@@ -50,7 +49,7 @@ class Service
         $sunset = $weatherObj->sunset;
 
         $body = "城市:" . $city . "\n";
-        $body .= "日期" . $date . "\n";
+        $body .= "日期:" . $date . "\n";
         $body .= "发布时间:" . $time . "\n";
         $body .= "邮政编码:" . $postCode . "\n";
         $body .= "海拔:" . $altitude . "\n";
@@ -61,7 +60,9 @@ class Service
         $body .= "风向:" . $WD . "\n";
         $body .= "风速:" . $WS . "\n";
         $body .= "日出时间:" . $sunrise . "\n";
-        $body .= "日落时间:" . $sunset . "\n";
+        $body .= "日落时间:" . $sunset;
+	
+	$body=htmlspecialchars($body);	
 
         return $body;
     }

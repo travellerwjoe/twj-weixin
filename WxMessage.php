@@ -5,16 +5,14 @@
  * Date: 16/4/18
  * Time: 01:47
  */
-require_once('Weixin.php');
+//require_once('Weixin.php');
+require_once('Service.php');
 
 class WxMessage
 {
     public function __construct()
     {
-        $this->weixin = new WeiXin();
-        if ($GLOBALS['HTTP_RAW_POST_DATA']) {
-            $this->do_message();
-        }
+       // $this->weixin = new WeiXin();
     }
 
     //获取用户消息
@@ -33,7 +31,7 @@ class WxMessage
         $this->toUserName = $messageObj->ToUserName;
         $msgType = $messageObj->MsgType;
         $createTime = $messageObj->CreateTime;
-
+	
         switch ($msgType) {
             case "text":
                 $content = trim($messageObj->Content);
@@ -47,21 +45,28 @@ class WxMessage
     //处理文本消息
     public function do_message_text($content)
     {
-        $contentArr = explode(" ", $content);
+        $contentArr = explode(".", $content);
         $serviceName = $contentArr[0];
-        $serviceData = $contentArr[1];
-
+	if($contentArr[1]){
+	        $serviceData = $contentArr[1];
+	}
+	if(count($contentArr)>2){
+		for($i=2;i<count($contentArr);$i++){
+			$serviceData.=' '.$contentArr[$i];
+		}
+	}
         $service = new Service($serviceName, $serviceData);
         $replyContent = $service->get_reply_content();
         $replyMsgType = $service->get_reply_msgType();
-
+	
+	
         //判断要回复消息的类型,默认回复文本消息
         switch ($replyMsgType) {
             case 'text':
                 $this->reply_message_text($replyContent);
                 break;
             default:
-                $this->reply_message_text($replyMsgType);
+                $this->reply_message_text($replyContent);
                 break;
         }
 
@@ -78,7 +83,7 @@ class WxMessage
                 $replyMessage = "";
                 break;
         }
-
+	
         echo $replyMessage;
     }
 
@@ -93,8 +98,8 @@ class WxMessage
     {
 
         $xmlMessage = "<xml>\n";
-        $xmlMessage .= "<ToUserName>" . $this->toUserName . "</ToUserName>\n";
-        $xmlMessage .= "<FromUserName>" . $this->fromUserName . "</FromUserName>\n";
+        $xmlMessage .= "<ToUserName>" . $this->fromUserName . "</ToUserName>\n";
+        $xmlMessage .= "<FromUserName>" . $this->toUserName . "</FromUserName>\n";
         $xmlMessage .= "<CreateTime>" . time() . "</CreateTime>\n";
         $xmlMessage .= "<MsgType>" . $msgType . "</MsgType>\n";
 
@@ -117,3 +122,5 @@ class WxMessage
     }
 
 }
+//echo 'j';
+//$wxmessage=new WxMessage();

@@ -1,0 +1,68 @@
+输出时间：2016-04-18 03:24:12
+signature:e346e2f2c39524b9940067be1be0a552cf86c1b0
+timestamp:1460921052
+nonce:1254100188
+echostr:681601785776303839
+tmpStr:e346e2f2c39524b9940067be1be0a552cf86c1b0
+tmpArr:12541001881460921052twj
+输出时间：2016-04-18 12:55:55
+message:<xml><URL><![CDATA[twjweb.cn/twj-weixin/Weixin.php]]></URL><ToUserName><![CDATA[123456]]></ToUserName><FromUserName><![CDATA[abc]]></FromUserName><CreateTime>147258369</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[天气.成都]]></Content><MsgId>3</MsgId></xml>
+输出时间：2016-04-18 12:56:00
+message:<xml><URL><![CDATA[twjweb.cn/twj-weixin/Weixin.php]]></URL><ToUserName><![CDATA[123456]]></ToUserName><FromUserName><![CDATA[abc]]></FromUserName><CreateTime>147258369</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[天气.成都]]></Content><MsgId>3</MsgId></xml>
+输出时间：2016-04-18 12:56:04
+message:<xml><URL><![CDATA[twjweb.cn/twj-weixin/Weixin.php]]></URL><ToUserName><![CDATA[123456]]></ToUserName><FromUserName><![CDATA[abc]]></FromUserName><CreateTime>147258369</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[天气.成都]]></Content><MsgId>3</MsgId></xml>
+输出时间：2016-04-18 13:49:52
+message:<xml>
+    <ToUserName><![CDATA[gh_d505c9b3976f]]></ToUserName>
+    <FromUserName><![CDATA[om-Rfwg4aykWeP7PDAeqQvI_IBzU]]></FromUserName>
+    <CreateTime>1460958592</CreateTime>
+    <MsgType><![CDATA[text]]></MsgType>
+    <Content><![CDATA[天气.石河子]]></Content>
+    <MsgId>6274769373852945133</MsgId>
+    <Encrypt><![CDATA[TfseIetRGMvQ4KZzwjxMVcB9x4SQ12r138g8d/EKiTt+RJzSr6FxZ4BYIpMGmPINY8ePi1dznOb3rSUR5tqdEgXy6IZDHfRCwaaLhh0OXkOnuo2UIPMpCAyOQK27v0R3D/6zTsUGlTLapU8W5cHqpz0j4AmiPM8Hzld0itFV0aJ7o3y2u2SmzhFukE654CTuyFvurm56GLrip0/h2vcJ3NNdHwLf/2S//Ub93tkhCWZad2U07ptRS/00hgucovYuOdCE6SWPkwztoWv4azsYBrNgWHvJ63i292F0eJW0rRR2d7wvqnkf3fE85BWTpRGWC8DrF1el/yQUiPdZ4k6l6xNqNwPmBP4BaeA1TEo9XW7TP7S5K+R+VxDY6szz+1VsSLYtloxN0PcnqTJY+G2afHVxxxby1tZeEh8B3g6BxQM02N8Eq9zjQhLr0LpbSrdRsiGgkyx29G1PKr87XlmQYg==]]></Encrypt>
+</xml>
+
+输出时间：2016-04-18 13:51:24
+message:<xml>
+    <ToUserName><![CDATA[gh_d505c9b3976f]]></ToUserName>
+    <FromUserName><![CDATA[om-Rfwg4aykWeP7PDAeqQvI_IBzU]]></FromUserName>
+    <CreateTime>1460958683</CreateTime>
+    <MsgType><![CDATA[text]]></MsgType>
+    <Content><![CDATA[天气.成都]]></Content>
+    <MsgId>6274769764694969089</MsgId>
+    <Encrypt><![CDATA[wfWR80jOv3JaPK/8o/PmgQffVrhOeVWxgpR6axT0VN/Q2qykapnoIw+ngQOBs/IghU0cedPkFRT7VIjA/jm7B+pxYpFBr7RQZ7utnHroVeSH5bz7fJUXisz3K13RvC0Nrn1edg/n8WagSJOoGCX+LvC6DwamwVJZKeAC4zVtBo4WfxnToCidQT/syJD9zTQOrOzyU/JJsUJAkQcXbCoIaz6Q/D+bnN8Z6hFDQkLvguYo0uvvPszHOzhzoZHstQn7+aef5mmjKvxJZzc4ochRF59MEIpKKfX0Ce0yuBK1gXd07AfCSmPDKw23bdYtBysacrIoCh/txYmD+qd5Ym+QhOQE6QsaaBenuH99IRODxM/igwp5PacCcK81aU0mbpNaddTdrprv05IKUk2PcdTgv1Hi3bAJJGGioUntaqtYtm47/uni9XXf3J/P3EtiUE8rgypADrzV6GkL/1Ej3UZMKQ==]]></Encrypt>
+</xml>
+
+输出时间：2016-04-18 13:51:49
+message:<xml>
+    <ToUserName><![CDATA[gh_d505c9b3976f]]></ToUserName>
+    <FromUserName><![CDATA[om-Rfwg4aykWeP7PDAeqQvI_IBzU]]></FromUserName>
+    <CreateTime>1460958709</CreateTime>
+    <MsgType><![CDATA[text]]></MsgType>
+    <Content><![CDATA[天气.北京]]></Content>
+    <MsgId>6274769876364118791</MsgId>
+    <Encrypt><![CDATA[osI+uNsryPN6l7AJLrX3aiSomVRFYP0WK1LYTFvb1pjEmLttqmF8xAWrZjD9k7tjpMbx87s631r3dFRfd+qWruCki/wUOKNYHOauoar7R6XDOCCGwvHzVXBncRxJhJi3Y1wOayXO/Z58JcWS/hW1oW0rq2FsmeXrTurzhc4V2A48t7ELZwfRJatjx+76pmg1ZEZVS3V+CMFsSlQdRi0HQw3kYWMX+AbDxtyH3QdLCOgX4RfThrW4f+2JJft8NTp+9/AUUPBab2uEyxCX/fC3QpxfLd9BIbbMbb1z6gKybr1+sZrWMaR1q8l/XHGFWCx6c4+W46oJuYuPkObWtGB21wuqHTOQwxtRWf65K0hNHYwnP+/mic0oHKxY7lXx8U9flRuTJkbgTd5wj1fGQx0pmbkB/DIoF/NWPhjoHT3kJkw+5YkIO1XkMO89+DDUtCsQywZ9mXU7sXcbRoN76Twlww==]]></Encrypt>
+</xml>
+
+输出时间：2016-04-18 13:52:10
+message:<xml>
+    <ToUserName><![CDATA[gh_d505c9b3976f]]></ToUserName>
+    <FromUserName><![CDATA[om-Rfwg4aykWeP7PDAeqQvI_IBzU]]></FromUserName>
+    <CreateTime>1460958729</CreateTime>
+    <MsgType><![CDATA[text]]></MsgType>
+    <Content><![CDATA[天气.漠河]]></Content>
+    <MsgId>6274769962263464717</MsgId>
+    <Encrypt><![CDATA[iSoABuN8wt5Y9wJHx5TYdqsZ/CFUqTT9k+m9RkfGId+MVa8WIOcimxqp9jCfPTtPBQJiqIaMU+L83huHyXoHm8K1g+Q/njOeucY1O4Wo4FHRjp3IafdFHyTydt8LB+LaI+9ySIA2l6li1h8ojPGssZeiBsm8tuPoXb2IlpOP88T+SnBD3LKlkHHhienPZA4cI+fRWlpOgru10FR6qxAe2Bm7NKyjgdgYIs59kNaHo3K2X4CVYVKJfMSVazMViQI/tkY8ITI2bQQXLleDHVKjXegDYilXzq8i0VKowywl0KuTteTNDs5z91lb37BBRLfU69b23o7N2tomZwY+6RWLoAkJ0O7wz2VL/NG15CPCkqHZ8O/KrHki10DkTSHysI0MYVh1soHw3n+GIqom8sG3BC6x3UVYx35lfvBPKNQ5wphTmCiEkV+ArZkbISIjaP2a/kfV7LhsXtLJdGGp8HbrKg==]]></Encrypt>
+</xml>
+
+输出时间：2016-04-18 17:24:59
+message:<xml>
+    <ToUserName><![CDATA[gh_d505c9b3976f]]></ToUserName>
+    <FromUserName><![CDATA[om-Rfwg4aykWeP7PDAeqQvI_IBzU]]></FromUserName>
+    <CreateTime>1460971498</CreateTime>
+    <MsgType><![CDATA[text]]></MsgType>
+    <Content><![CDATA[天气.成都]]></Content>
+    <MsgId>6274824804700871218</MsgId>
+    <Encrypt><![CDATA[wXKOZz/gWb1yYrXanzkdO164ZUP3tWbcVoyJfUKmp6WlbcnQW6ez9h6eQ99ejmDA4j4LF0knIWLiWWsq2nnCWJUU+h9I29Px/IG+W4zG4zNZErDdP/RMn3zv2JqH/C+D+jCuIPPeanuA4N25IQt9gOIhmoiLuXEh0C3fDueI1e3k+rbjSy4ARmkk8upyZVOQ60l9413DGUxDkDy86kljwAE/rLcXDkHfGM+UGUypzIjhHskBahLZJ3ajy3kHG8+hCS0nNIuZt0RbAP6Kj2xcGWZVHm8P2hXRatvXXnFPj/INUi7t8Qa007w8ZGMYZzT6b+mvyzpmIbvfSSzKK1YgJ2F7rjakmSa4mas+LyO9edLGkjT1Q7xj6PNMfldhnfvPkku5unFN45vj5nSZ0veKWhIV6091UrlNeAyqvx9mx0OlRDgs7ix96mXJCwMIqU5lX9YzfVleHLTyHcuVRek2oQ==]]></Encrypt>
+</xml>
+
