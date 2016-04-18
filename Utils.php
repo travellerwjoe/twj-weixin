@@ -1,6 +1,12 @@
 <?php
 class Utils{
-	public function exe_curl($url,$type="get",$post_data=null,$data_type="json",$header=null){
+
+    public function __construct()
+    {
+
+    }
+
+    public function exe_curl($url,$type="get",$post_data=null,$data_type="json",$header=null){
 		$ch=curl_init();
 		$options = array(
 			CURLOPT_URL =>$url, 
@@ -28,7 +34,7 @@ class Utils{
 		return $this->exe_curl($url,"get",null,$data_type,$header);
 	}
 
-	public function  curl_post($url,$post_data,$data_type="json",$header=null){
+	public function curl_post($url,$post_data,$data_type="json",$header=null){
 		return $this->exe_curl($url,"post",$post_data,$data_type,$header);
 	}
 

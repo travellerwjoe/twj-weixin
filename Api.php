@@ -18,13 +18,13 @@ class Api
         $this->header=array(
             "apikey:" . $this->BD_apikey
         );
-        $this->utlis = new Utils();
+        $this->utils = new Utils();
     }
 
     function get_weather($cityname)
     {
         $url = "http://apis.baidu.com/apistore/weatherservice/cityname?cityname=".$cityname;
-        $result = $this->utlis->curl_get($url,"json", $this->header);
+        $result = $this->utils->curl_get($url,"json", $this->header);
         if($result->errNum!=0){
             return $result->errMsg;
         }
