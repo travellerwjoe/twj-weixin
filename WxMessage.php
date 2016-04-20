@@ -37,6 +37,10 @@ class WxMessage
                 $content = trim($messageObj->Content);
                 $this->do_message_text($content);
                 break;
+	    case "event":
+		$event = $messageObj->Event;
+		$this->do_event($event);
+		break;
             default:
                 break;
         }
@@ -78,6 +82,22 @@ class WxMessage
                 break;
         }
 
+    }
+
+    //处理事件
+    public function do_event($event){
+	switch($event){
+	    case "subscribe":
+		$this->do_event_subscribe();
+		break;
+	    default:
+		break;	
+	}
+    }
+
+    public function do_event_subscribe(){
+	$content="感谢关注，我是智能小机器人，您可以随时与我聊天哦，希望能做你生活的调味剂！";
+	$this->reply_message_text($content);
     }
 
     //回复消息

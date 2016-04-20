@@ -20,7 +20,9 @@ class WeiXin
         if ($GLOBALS['HTTP_RAW_POST_DATA']) {
             $wxmessage = new WxMessage();
             $wxmessage->do_message();
-        }
+            $str=array('message'=>$GLOBALS['HTTP_RAW_POST_DATA']);
+	    $this->utils->output_log($str);
+	}
     }
 
     //首次与微信服务器通信验证
